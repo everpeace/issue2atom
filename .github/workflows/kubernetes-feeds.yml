@@ -23,13 +23,13 @@ jobs:
           max_issue_num: 10
 
       # you can add multiple definitions
-      # - name: issue2atom octocat/hello-world
-      #   id: issue2atom_tsubasaogawa/issue2atom
-      #   uses: tsubasaogawa/issue2atom@v2
-      #   with:
-      #     user: "tsubasaogawa"
-      #     repo: "issue2atom"
-      #     max_issue_num: 10
+      - name: issue2atom octocat/hello-world
+        id: issue2atom_tsubasaogawa/issue2atom
+        uses: tsubasaogawa/issue2atom@v2
+        with:
+          user: "kubernetes"
+          repo: "enhancements"
+          max_issue_num: 500
 
       - name: Push generated atom file
         uses: stefanzweifel/git-auto-commit-action@v4
