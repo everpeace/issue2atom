@@ -1,3 +1,5 @@
+name: kubernetes-feeds
+
 on:
   # schedule:
   #  - cron: "15 0 * * *"
@@ -6,7 +8,7 @@ on:
 jobs:
   issue2atom:
     runs-on: ubuntu-latest
-    name: Sample job using issue2atom
+    name: Build Kubernetes Feeds
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,8 +17,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       # you can add multiple definitions
-      - name: issue2atom octocat/hello-world
-        id: issue2atom_tsubasaogawa/issue2atom
+      - name: kubernetes-enhancements-feeds
         uses: tsubasaogawa/issue2atom@v2
         with:
           user: "kubernetes"
