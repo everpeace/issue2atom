@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>issue2atom_kubernetes/enhancements/issues</id><title>GitHub Issues kubernetes/enhancements</title><updated>2026-09-13T04:44:00.228621+00:00</updated><author><name>kubernetes</name></author><link href="https://github.com/kubernetes/enhancements/issues" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>GitHub Issues of kubernetes/enhancements</subtitle><entry><id>issue2atom_kubernetes/enhancements/issues/6352</id><title>DRA: Node Allocatable Capacity Reservation </title><updated>2026-09-12T01:03:21+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6352" rel="alternate"/><summary>### Enhancement Description
+
+Split out of KEP-5517 beta update (https://github.com/kubernetes/enhancements/pull/6324).
+
+KEP-5517 covers node allocatable that a DRA allocation adds to the pod referencing the claim, enforced in that pod's cgroups. But some accelerator and storage devices are served by a daemon process that the driver spins up when the device is allocated Eg: a GPU MPS control daemon, a shared filesystem mounter. That reserved capacity does not belong to any pod with a claim referencing the device, It belongs to the driver-side process managing it.
+
+The purpose of such a reservation is to:
+1. make sure the scheduler does not overcommit the node when the device is allocated and the daemon process is running
+2. make sure the driver does not have to request the capacity statically, which would hold it on
+   every node whether or not any device is allocated
+
+This serves a similar purpose to kubelet's `--system-reserved` [config](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/) , but is dynamic based on the allocated device and it is only held as long as the device remains allocated.
+
+- One-line enhancement description (can be used as a release note):  Allow a DRA device to reserve node allocatable capacity for the driver-side process that
+  serves it, held only while the device is allocated.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt;
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6353
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._</summary><published>2026-09-11T21:51:40+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6333</id><title>Support CFS Bursting in Kubelet</title><updated>2026-09-08T18:08:16+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6333" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Enable CFS quota bursting in Kubelet to reduce tail latency and prevent CPU throttling during short execution bursts.
+- Kubernetes Enhancement Proposal: tbd
+- Discussion Link: https://github.com/kubernetes/kubernetes/issues/104516
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-08T15:29:33+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6326</id><title>Eviction semantics for PodGroup-owned StatefulSet pods</title><updated>2026-09-04T20:45:51+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6326" rel="alternate"/><summary>### Context
+
+While reviewing the [KEP-6277](https://github.com/kubernetes/enhancements/issues/6277) that integrates StatefulSets with the WAS, I recalled that [KEP-4563](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md) already takes three positions on PodGroups:
+
+1. EvictionRequests targeting a pod with `.spec.schedulingGroup` are rejected, and `[evictionResponders](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#pod-and-evictionrequest-api) is unsupported on such pods.
+2. The controller "should use these fields introduce by the [preemption KEP](https://github.com/kubernetes/enhancements/issues/5710) and disrupt pods in a pod group according to the disruption mode".
+3. StatefulSet could create EvictionRequests under a new `.spec.updateStrategy`; workload integration is a [non-goal](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#non-goals) for now.
+
+So 4563 answers the eviction question by default, using a field 6277 is putting on the StatefulSet API, and neither KEP has checked that the default fits StatefulSet workloads.
+
+**Which StatefulSets this affects:** an etcd or Cassandra StatefulSet, where removing the leader or an under-replicated shard owner is an outage but removing any other member is safe. Pods are not interchangeable, safe-to-remove is per pod and changes minute to minute, and only the application knows which pod is safe right now. `All` is an outage; `Single` is safe only if the app picks the order and gates each step. 4563's [Pod and Responder](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#pod-and-responder) section describes these workloads (controller logic "to distinguish whether a disruption of a particular pod will disrupt the application as a whole"), and `evictionResponders` already provides the ordered, gated handover for plain pods.
+
+### Regression
+
+In the KEP-6277 PR, `OrderedReady` maps to `Basic` policy with no gang ([thread](https://github.com/kubernetes/enhancements/pull/6298#discussion_r3915850135)).
+If so, opting in (for topology, priority, or `resourceClaims`) makes 4563 reject `EvictionRequests` and ignore responders for those pods. 
+
+These OrderedReady StatefulSets gain nothing from gang scheduling and lose the eviction contract they most depend on. This is a feature loss, not a semantics disagreement, and should be named in one KEP before 6277 alpha.
+
+### Q1. What does a PodGroup-targeted EvictionRequest mean under `Single`?
+
+4563 defines `All` (N Evictions, together). But for `Single`, it is undefined whether the N Evictions are parallel or sequential. These StatefulSets need sequential (one Eviction active, next member released only when the responder completes the previous, order chosen by the responder). 
+
+So we need to define `Single` for a group target as sequential-with-responders; state in 4563 when the `schedulingGroup` rejection is expected to go. Until then, 6277 should note that `spec.scheduling` disables EvictionRequest for the StatefulSet's pods.
+
+### Q2. Should `disruptionMode` govern eviction at all?
+
+On [PodGroup v1beta1](https://kubernetes.io/docs/reference/kubernetes-api/scheduling/pod-group-v1beta1), the `disruptionMode is immutable, a union (`single: {}` / `all: {}`).
+
+- Neither value expresses gated, ordered eviction. A quorum StatefulSet sets `Single` for preemption and still needs sequencing.
+- The 6277 PR says `disruptionMode` is a no-op for OrderedReady because "pods are always disrupted independently" ([thread](https://github.com/kubernetes/enhancements/pull/6298#discussion_r3915868506)). That is scheduler-scoped and becomes false when 4563 ships PodGroup support as written.
+- Immutable + template-copied means changing eviction behaviour requires a PodGroup recreate, which for a StatefulSet is a rollout.
+
+A similar case has been raised "schedule one-by-one but preempt as a gang" ([thread](https://github.com/kubernetes/enhancements/pull/6298#discussion_r3915850135)). Scheduling unit, preemption unit, and eviction unit are three concerns; PodGroup already separates the first two (`preemptionPolicy` vs `disruptionMode`).
+
+I believe KEP-6277 should document `spec.scheduling.disruptionMode` as preemption-only, eviction deferred to 4563. 4563 then chooses a new value or a separate field rather than inheriting the preemption field.
+
+### Q3. Which KEP owns the rolling-update path?
+
+StatefulSet and Deployment delete pods directly during rollouts. Thit path bypasses eviction machinery and PDBs, so responders offer no protection on update. 4563 sketches the fix but scopes it out, while 6277 is designing rollout and scaling now (`RollingUpdate.Partition` with multiple PodGroups at beta, scaling via in-place PodGroup `minCount`).
+
+KEP-6277 should state whether rollout deletion of group members goes through EvictionRequest or direct delete, and whether in-place `minCount` scaling touches eviction. If "direct delete for alpha", record the gap and name the owning KEP. This can be related also to #6265.</summary><published>2026-09-04T20:15:22+00:00</published></entry></feed>
