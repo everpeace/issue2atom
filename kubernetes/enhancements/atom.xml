@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>issue2atom_kubernetes/enhancements/issues</id><title>GitHub Issues kubernetes/enhancements</title><updated>2026-09-18T04:40:14.906873+00:00</updated><author><name>kubernetes</name></author><link href="https://github.com/kubernetes/enhancements/issues" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>GitHub Issues of kubernetes/enhancements</subtitle><entry><id>issue2atom_kubernetes/enhancements/issues/6386</id><title>Introduce the ability to configure ephemeral storage at the pod level</title><updated>2026-09-17T23:37:43+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6386" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Introduce the ability to configure and manage ephemeral storage directly at the pod level.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+
+Primary contact (assignee): @ndixita
+
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-17T23:36:05+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6382</id><title>Allow HPA metrics to specify a custom API group source</title><updated>2026-09-17T08:57:46+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6382" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note):  Allow individual HPA metrics to specify an alternative API group as their source, enabling multi-provider metric routing without replacing the cluster-wide default provider.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: Private conversation with Adrian and Maciej. Related prior issues: https://github.com/kubernetes-sigs/custom-metrics-apiserver/issues/70, https://github.com/kubernetes/enhancements/issues/4261, https://github.com/kubernetes/enhancements/issues/2580
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-17T08:56:29+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6377</id><title>KEP-6377: Generating VEX feed for Kubernetes</title><updated>2026-09-16T13:01:11+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6377" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Generate and publish VEX documents for Kubernetes master branch via periodic prow jobs and Vexflow
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6376
+- Discussion Link: 
+  - https://kubernetes.slack.com/archives/C2C40FMNF/p1788558811038539, 
+  - SIG-Release meeting [2026-05-14](https://docs.google.com/document/d/1Fu6HxXQu8wl6TwloGUEOXVzZ1rwZ72IAhglnaAMCPqA/edit?usp=sharing), 
+  - SIG-Testing meeting [2026-05-12](https://docs.google.com/document/d/1z8MQpr_jTwhmjLMUaqQyBk1EYG_Y_3D4y4YdMJ7V1Kk/edit?usp=sharing)
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-16T11:56:10+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6371</id><title>KEP-6371: External Node Liveness Detection</title><updated>2026-09-16T18:33:48+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6371" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Make node liveness detection replaceable with a custom implementation.
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6373
+- Discussion Link: https://groups.google.com/a/kubernetes.io/g/sig-node/c/qoVBh90foMs
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6373
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-15T15:20:34+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6369</id><title>Pod Assigned Resource Exposure via Downward API</title><updated>2026-09-17T20:36:05+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6369" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Pod Assigned Resource Exposure via Downward API
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt; https://github.com/kubernetes/enhancements/pull/6370
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt;
+- Primary contact (assignee): @Chunxia202410 , @lukaszwojciechowski , @radoslawc , @shiya0705, @ksadura
+- Responsible SIGs: sig-node
+- Enhancement target (which target equals to which milestone):
+  - [ ] Alpha release target (x.y): 1.38
+  - [ ] Beta release target (x.y): 1.39
+  - [ ] Stable release target (x.y): 1.40
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6370
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-15T13:19:37+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6361</id><title>KEP: Controller Leader Election Recovery</title><updated>2026-09-16T13:25:11+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6361" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Allow controllers to recover quickly from API unavailability
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6365
+- Discussion Link: https://groups.google.com/g/kubernetes-sig-api-machinery/c/iULCHBIi0Wo
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6365
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s): 
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-14T19:13:11+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6358</id><title>PDB owner-chain traversal for scalable ancestor</title><updated>2026-09-14T16:54:31+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6358" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note):
+The PDB disruption controller now walks the ownerRef chain to the outermost scalable ancestor, enabling maxUnavailable PDBs to work correctly with multi-level owner hierarchies such as KubeVirt VMPool and Argo Rollouts.
+ 
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: https://github.com/kubernetes/kubernetes/issues/139582
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-14T16:54:23+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6356</id><title>publishing ktesting</title><updated>2026-09-16T15:32:13+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6356" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): publish ktesting for use outside of k8s.io/kubernetes, in particular in other staging repos
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6357
+- Discussion Link: https://kubernetes.slack.com/archives/C09QZ4DQB/p1786026873959519
+- PRs by stage and milestone:
+- [ ] Stable - v1.38
+  - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6357
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s): not needed, covered by `go doc`
+
+This is a one-time "policy decision" KEP. Once agreed, it will be implemented within one release cycle.
+
+/sig testing</summary><published>2026-09-14T09:43:26+00:00</published></entry></feed>
