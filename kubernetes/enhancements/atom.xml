@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>issue2atom_kubernetes/enhancements/issues</id><title>GitHub Issues kubernetes/enhancements</title><updated>2026-09-26T04:54:32.149400+00:00</updated><author><name>kubernetes</name></author><link href="https://github.com/kubernetes/enhancements/issues" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>GitHub Issues of kubernetes/enhancements</subtitle><entry><id>issue2atom_kubernetes/enhancements/issues/6432</id><title>Configurable Container Level field for Pod Readiness</title><updated>2026-09-25T15:52:31+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6432" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Provides option of excluding container in pod readiness evaluation
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; https://github.com/kubernetes/kubernetes/issues/142145
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-25T14:44:52+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6430</id><title>SLM: Coordinate Node lifecycle condition writers</title><updated>2026-09-24T16:19:08+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6430" rel="alternate"/><summary>### Enhancement Description
+[Node lifecycle conditions](https://kubernetes.io/docs/reference/node/node-lifecycle-conditions/) provide a shared place to publish important lifecycle state, but the Condition API does not provide coordination semantics. Multiple actors, like admins running `kubectl drain`, remediation controllers, Node Problem Detector, infrastructure operators, ect., can all observe the same Node and independently decide to write lifecycle state invalidating each other.
+
+The issue is Node Conditions writes are unaware of one another, so they can overwrite progress, invalidate another actor's lifecycle signal, or trigger conflicting remediation. There isn't an available way to coordinate who set the condition, how long it will be set for, ect..
+
+This KEP will define a coordination mechanism for Node lifecycle condition writers and a way to discover ownership. The mechanism should allow an actor to declare that it is managing a Node lifecycle operation, identify the scope of that ownership, and give other writers and readers enough structured context to avoid conflicting updates. It will also define how readers should interpret lifecycle state when an owner is present.
+
+- One-line enhancement description (can be used as a release note): Add coordination mechanism for actors writing Node lifecycle conditions.
+- Kubernetes Enhancement Proposal: TBD
+- Discussion Link:
+  - Use cases doc: [Node Lifecycle Coordination Using Conditions](https://docs.google.com/document/d/12nMG9Yyzd5D8iams5Oc4BEtfupe-li-Kxsxm_G7D_Ts/edit?usp=sharing)
+  - [KEP-5683: Node Lifecycle Conditions](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/5683-lifecycle-conditions)
+  - [Specialized Lifecycle Management](https://github.com/kubernetes/enhancements/issues/5683)
+  - [SLM: Publish kubectl drain state as Node conditions](https://github.com/kubernetes/enhancements/issues/6251)
+  - [kubernetes/node-problem-detector#1176](https://github.com/kubernetes/node-problem-detector/issues/1176)
+  - [kubernetes/node-problem-detector#457](https://github.com/kubernetes/node-problem-detector/issues/457)
+- PRs by stage and milestone:
+  - [ ] Alpha - TBD
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update PR(s):
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+
+/sig node
+/sig cli
+/wg node-lifecycle</summary><published>2026-09-24T16:18:40+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6416</id><title>Kubelet parallel container operations</title><updated>2026-09-24T21:44:48+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6416" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Enable the Kubelet to perform some container operations within a pod in parallel.
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6419
+- Discussion Link: TODO
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-22T16:02:05+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6413</id><title>PodGroup runtime satisfaction condition</title><updated>2026-09-23T13:29:02+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6413" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add a `PodGroupSatisfied` condition to PodGroup status, reporting whether a gang currently has at least `minCount` scheduled members.
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6414
+- Discussion Link: https://github.com/kubernetes/kubernetes/issues/136334
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6414
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+`PodGroupInitiallyScheduled` is terminal by design, so a gang that has dropped below `minCount` looks the same in status as a healthy one. Consumers re-derive group health from member pods instead: LeaderWorkerSet infers it from Pod phase, which is ambiguous under gang scheduling (kubernetes-sigs/lws#1056); the multi-pod PDB KEP (#5671) recomputes `healthy_pods &gt;= minCount` in the eviction path; JobSet defers the question entirely.
+
+This adds one condition, computed from the per-group member state the scheduler cache already maintains. No schema change and no scheduling behavior change; the feature gate `PodGroupRuntimeSatisfaction` is kube-scheduler only.
+
+Whether a gang owner can choose how replacement members are admitted after initial placement is out of scope, and is recorded as future work in the KEP.
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+
+/sig scheduling
+</summary><published>2026-09-22T13:16:45+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6412</id><title>Expose cgroup v2 memory.events counters in CRI container stats</title><updated>2026-09-23T13:27:30+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6412" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Expose cgroup v2 `memory.events` counters (low/high/max/oom/oom_kill) through the CRI stats API and the kubelet Summary API, so operators can count memory-threshold crossings (complementary to PSI's time-based pressure metrics).
+- Spun out of #5986 (Per-container memory pressure eviction): the `memory.events` observability
+  piece, extracted as a standalone additive CRI stats change so it can land independently of the
+  eviction work.
+- Kubernetes Enhancement Proposal: KEP PR to follow (link TBD)
+- Discussion Link: sig-node — TBD (#sig-node Slack / sig-node meeting)
+- Primary contact (assignee): @sohankunkerkar @QiWang19 
+- Responsible SIGs: sig-node
+- Enhancement target (which target milestone is it going in to):
+  - Alpha release target (x.y): 1.38
+  - Beta release target (x.y): TBD
+  - Stable release target (x.y): TBD
+- [ ] Alpha
+  - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6422
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update PR(s):
+&lt;!--
+- [ ] Beta
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the
+evolution of the enhancement efficiently._
+
+/sig node
+/kind feature
+</summary><published>2026-09-22T12:53:33+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6406</id><title>DRA: Capacity Requests for Extended Resource Mapping</title><updated>2026-09-23T12:25:12+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6406" rel="alternate"/><summary>## Enhancement Description
+
+**One-line enhancement description (can be used as a release note):**
+Cluster administrators can declare a fixed device capacity request (for example, a number of GPU time-slicing shares) on a `DeviceClass`, so that the scheduler applies it automatically to every `ResourceClaim` it synthesizes to satisfy that class's extended resource requests.
+
+**Kubernetes Enhancement Proposal:**
+
+
+**Discussion Link:**
+
+
+**Primary contact (assignee):**
+@shivamerla
+
+**Responsible SIGs:**
+SIG Scheduling, SIG Node
+
+**Enhancement target (which target equals to which milestone):**
+
+- Alpha release target (x.y): 1.38
+- Beta release target (x.y): TBD
+- Stable release target (x.y): TBD
+
+**Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently.**
+
+## Enhancement Goal
+
+[DRA Extended Resource](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5004-dra-extended-resource) (GA in 1.37) lets a `DeviceClass` declare an `extendedResourceName` so classic `resources.requests`/`resources.limits` entries (e.g. `nvidia.com/gpu: 1`) are satisfied by DRA devices, with the scheduler synthesizing a `ResourceClaim` on the pod's behalf. [DRA Consumable Capacity](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5075-dra-consumable-capacity) (Beta in 1.36) lets a `ResourceClaim`'s device request specify a `capacity.requests` map so a shareable device (`allowMultipleAllocations: true`) is only partially consumed, instead of being handed out as a whole device.
+
+Today there is no way to use consumable capacity for extended resources: the extended-resource-synthesized `ResourceClaim`'s device request never sets `Capacity`, so extended resources can only ever request whole, exclusively-allocated devices. There is no way for `nvidia.com/gpu.shared: 1` (the classic device-plugin-era resource name used for GPU time-slicing) to end up as "give me 2 shares of a shareable GPU" through DRA.
+
+This enhancement adds an optional `extendedResourceCapacityRequests` field to `DeviceClassSpec`. When set, the scheduler copies it onto the `Capacity` field of every `ExactDeviceRequest` it synthesizes for that class's `ExtendedResourceName`, using the exact same `CapacityRequirements` type and per-allocation semantics `DeviceRequest.Capacity` already has. This is deliberately a thin, additive KEP: no new allocation semantics, no new scheduler algorithm, just wiring an existing field through an existing synthesis path.
+
+**Primary motivating use case:** DRA Driver for NVIDIA GPUs already lets an administrator advertise a fixed number of `"shares"` per GPU (`--consumable-shares=&lt;N&gt;`, via `DRAConsumableCapacity`). Today, migrating a workload from device-plugin time-slicing (`nvidia.com/gpu.shared: 1`) to this DRA-based sharing model requires the workload to switch to a `ResourceClaim`/`ResourceClaimTemplate`. With this enhancement, an administrator can instead publish one `DeviceClass` per desired slice size (e.g. `extendedResourceName: nvidia.com/gpu.shared` with `extendedResourceCapacityRequests: {requests: {shares: "1"}}`), and existing pod specs using the classic extended resource syntax get routed to a correctly-sized GPU slice with zero pod-spec changes. The mechanism itself is generic and applies to any DRA driver/capacity name (NIC bandwidth slices etc.), not just GPUs.
+
+## Release Milestones
+
+### Alpha (target v1.38)
+- [ ] KEP (`k/enhancements`) update PR(s):
+- [ ] Code (`k/k`) update PR(s):
+- [ ] Docs (`k/website`) update PR(s):
+</summary><published>2026-09-21T14:17:18+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6404</id><title>API Server Write Throughput: Address Allocation Ceiling and Degraded State Bottlenecks</title><updated>2026-09-22T12:54:23+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6404" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Umbrella to track improvements related to apiserver allocations
+- Kubernetes Enhancement Proposal: 
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6407
+    - [ ] Code (`k/k`) update PR(s): https://github.com/kubernetes/kubernetes/issues/142223
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s): 
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-21T12:25:13+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6398</id><title>Proactive cgroup reclaim via memory.reclaim (follow-up to MemoryQoS)</title><updated>2026-09-21T10:09:10+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6398" rel="alternate"/><summary>### Enhancement Description
+- One-line enhancement description (can be used as a release note): Optionally reclaim reclaimable memory from container cgroups by writing cgroup v2 `memory.reclaim` before usage hits `memory.high`, so cold pages can be dropped without putting allocating threads on the MemoryQoS throttle path.
+- Kubernetes Enhancement Proposal: &lt;!-- none yet --&gt;
+- Discussion Link: https://github.com/kubernetes/enhancements/issues/2570#issuecomment-5724492835
+- Related issues:
+  - https://github.com/kubernetes/enhancements/issues/2570 (KEP-2570 Memory QoS)
+  - https://github.com/kubernetes/enhancements/issues/2254 (cgroup v2)
+  - https://github.com/kubernetes/enhancements/issues/4205 / https://github.com/kubernetes/enhancements/issues/5394 (PSI)
+  - https://github.com/kubernetes/enhancements/issues/5986 (memory.events / pressure remediation; SIG Node preferred an external controller over in-kubelet reaction)
+  - https://github.com/kubernetes/autoscaler/issues/9926 (VPA reactive in-place resize on PSI / memory.events)
+  - https://github.com/koordinator-sh/koordinator/issues/3186, https://github.com/koordinator-sh/koordinator/pull/3189 (userspace `memory.reclaim` loop for BE cgroups)
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+
+### User stories
+1. **Latency-sensitive service on cgroup v2:** I want reclaimable cache trimmed before `memory.high`, so I do not pay allocation stalls just to keep usage from walking up to `memory.max`.
+2. **Cluster operator enabling MemoryQoS throttling:** I want `memory.high` as a safety net, not as the steady-state reclaim mechanism.
+3. **Distro / node agent:** if kubelet does not own the loop, I need a stable description of which cgroups are fair game and how that interacts with MemoryQoS and eviction.
+
+### Motivation
+On cgroup v1, some workloads sit stably around working set plus a bounded amount of page cache. After moving the same app to cgroup v2, reclaim looks much less aggressive: with `memory.high` left at the default `max` (MemoryQoS beta does not set `memory.high` unless `memoryThrottlingFactor` is configured), usage keeps climbing toward `memory.max` instead of leveling off.
+Enabling MemoryQoS throttling (`memory.high`) does stop the climb, but hitting `memory.high` puts the **allocating threads** on the synchronous reclaim / throttle path (and on kernels &lt; 5.9, this was the MemoryQoS livelock). For latency-sensitive workloads, that stall is a worse failure mode than extra cache.
+The kernel documents `memory.high` as something that is meant to be paired with an **external** monitor, not as the only reclaim mechanism:
+&gt; Going over the high limit never invokes the OOM killer and under extreme conditions the limit may be breached. The high limit should be used in scenarios where an **external process monitors the limited cgroup to alleviate heavy reclaim pressure**.
+&gt;
+&gt; — [cgroup v2: `memory.high`](https://docs.kernel.org/admin-guide/cgroup-v2.html)
+`memory.reclaim` (Linux **5.19+**) is that proactive interface: write a byte amount, the kernel reclaims from the target cgroup (may over/under-reclaim; `-EAGAIN` if it reclaimed less). It does **not** advertise memory pressure (PSI / socket balancing are not exercised). Protection from `memory.min` / `memory.low` still applies to the reclaim target.
+A control loop that writes `memory.reclaim` when usage approaches `memory.high` (or some ratio of `memory.high` / `memory.max`) could pull usage slightly below the throttle line, leave `memory.high` as a last-resort brake, and avoid putting the workload on the stall path.
+</summary><published>2026-09-20T01:58:11+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6395</id><title>Dynamic node-local ephemeral volumes</title><updated>2026-09-23T17:17:19+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6395" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Support dynamically adding and removing node-local ephemeral volumes (ConfigMaps, Secrets, Projected, EmptyDir) to existing pods.
+- Kubernetes Enhancement Proposal:
+- Discussion Link: 
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.38
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6421#discussion_r4075092520
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._</summary><published>2026-09-18T18:03:25+00:00</published></entry></feed>
