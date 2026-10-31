@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>issue2atom_kubernetes/enhancements/issues</id><title>GitHub Issues kubernetes/enhancements</title><updated>2026-10-31T05:35:31.862795+00:00</updated><author><name>kubernetes</name></author><link href="https://github.com/kubernetes/enhancements/issues" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>GitHub Issues of kubernetes/enhancements</subtitle><entry><id>issue2atom_kubernetes/enhancements/issues/6480</id><title>CSI ControllerUnpublishVolume Reason</title><updated>2026-10-29T15:51:32+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6480" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): CSI drivers can now tell whether a volume is being detached after node cleanup succeeded, after Kubernetes stopped waiting for it, or because the node was taken out of service.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; https://github.com/container-storage-interface/spec/pull/613
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6481
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-10-29T15:46:19+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6476</id><title>Per-Pod OOM Kill Scope</title><updated>2026-10-26T00:01:45+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6476" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add a pod-level configuration for Process or Container level OOM Kills, to complement the node-level kubelet config `singleProcessOOMKill` setting.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; To be discussed, reserving an issue number now to file the draft PR.
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+/sig node
+</summary><published>2026-10-25T16:34:43+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6475</id><title>Feature Request: Improve Pod Status Not Ready When all Containers Are Not Ready</title><updated>2026-10-24T17:59:23+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6475" rel="alternate"/><summary>@kubernetes/sig-cli-feature-requests
+
+# Feature Request: Improve Pod Status Not Ready When all Containers Are Not Ready
+
+## Summary
+
+I would like to propose improving the human-readable Pod status displayed by `kubectl get pods` when a Pod has multiple containers and one or more containers are not yet ready.
+
+## Current behavior
+
+For a Pod containing an application container and a sidecar container, the output may look like this:
+
+```text
+NAME                  READY   STATUS
+my-application-pod    1/2     Running
+```
+
+In this situation, the sidecar may be ready while the application container is still initializing or is not ready to serve requests. The `STATUS` column displays `Running`, which can give operators an incomplete picture when monitoring multiple Pods.
+
+## Proposed behavior
+
+Consider making the displayed status more descriptive when not all containers are ready.
+
+For example:
+
+```text
+NAME                  READY   STATUS
+my-application-pod    1/2     NotReady
+```
+
+Alternatively, the status could reflect the specific startup condition:
+
+```text
+NAME                  READY   STATUS
+my-application-pod    0/2     ContainerCreating
+```
+
+The exact status names and transition rules would be subject to community discussion.
+
+## Expected benefits
+
+- Make partially initialized or unhealthy workloads easier to identify.
+- Improve operational visibility when monitoring Pods across multiple namespaces.
+- Reduce ambiguity between a Pod whose containers are running and a Pod whose containers are all ready.
+- Help operators identify application startup failures more quickly, particularly in multi-container Pods with sidecars.
+
+## Compatibility considerations
+
+I propose keeping the existing Pod phase semantics and API fields backward-compatible. Any enhancement should preferably improve the human-readable status presented by `kubectl` without introducing unnecessary changes to the Kubernetes Pod lifecycle API.
+
+## Request for feedback
+
+Would the Kubernetes community consider a change to the human-readable Pod status so that it more clearly distinguishes fully ready Pods from Pods with containers that are still starting or are not ready?</summary><published>2026-10-24T17:59:11+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6472</id><title>Show Pod extended resource requests in kubectl describe node</title><updated>2026-10-21T05:26:37+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6472" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Show Pod extended resource requests and limits in a separate table in `kubectl describe node`.
+- Kubernetes Enhancement Proposal: [Draft KEP PR #6473](https://github.com/kubernetes/enhancements/pull/6473).
+- Discussion Link: SIG discussion has not taken place yet. Related prior work: [kubernetes/kubernetes#44271](https://github.com/kubernetes/kubernetes/issues/44271) and [kubernetes/kubernetes#46079](https://github.com/kubernetes/kubernetes/pull/46079).
+- PRs by stage and milestone:
+  - [ ] Provisional design; no release target
+    - [ ] KEP (`k/enhancements`) update PR: https://github.com/kubernetes/enhancements/pull/6473
+    - [ ] Code (`k/k`) update PR: not started
+    - [ ] Docs (`k/website`) update PR: not started
+
+The current node description shows extended resource totals but does not show which Pods requested them. This proposal adds one row per nonzero Pod/resource pair and reuses the existing Pod reads and resource calculations. Resource names come from Pod data; there is no vendor list.
+
+A Pod may request several resource types, for example GPU count, memory, cores, and network resources. The table grows in rows rather than columns and does not silently truncate matching requests.
+
+This differs from [KEP-5677](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/5677-dra-resource-availability-visibility), which adds an API and controller for DRA pool availability. This proposal shows scalar requests, including extended resource keys served by DRA, but does not expand explicit ResourceClaims. A note marks that limit when listed Pods reference Claims. It does not report device assignments or runtime use.
+
+Proposed ownership is SIG CLI, with SIG Node participation. SIG sponsorship, the output design, and the release plan are not agreed yet. No new API, API calls, permissions, feature gate, or command-line flag is proposed.
+
+/sig cli
+/sig node
+</summary><published>2026-10-21T05:23:54+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6467</id><title>Show init container waiting reasons in Pod table output</title><updated>2026-10-21T10:20:23+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6467" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description: Show the existing `PodInitializing` waiting reason alongside the init count in the server-generated Pod Table used by `kubectl get pods`.
+- Kubernetes Enhancement Proposal: [KEP PR #6468](https://github.com/kubernetes/enhancements/pull/6468), status `provisional`; [proposed README](https://github.com/panpan0000/enhancements/blob/kep-6467-init-container-startup-status/keps/sig-node/6467-init-container-startup-status/README.md).
+- Discussion links: [original feature request](https://github.com/kubernetes/kubernetes/issues/141686), [implementation PR](https://github.com/kubernetes/kubernetes/pull/141693), and [KEP-first guidance](https://github.com/kubernetes/kubernetes/pull/141693#issuecomment-6126926630).
+- Primary contact: @panpan0000
+- Proposed owning SIG: SIG Node; participating SIG: SIG CLI. The printer-only scope requests SIG CLI review; ownership, sponsorship, and approvers remain to be confirmed.
+- PRs by stage and milestone:
+  - [ ] Alpha - candidate Kubernetes v1.39 release; release stages subject to SIG agreement
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6468
+    - [ ] Code (`k/k`) update PR(s): https://github.com/kubernetes/kubernetes/pull/141693 (earlier kubelet proposal; needs a separate printer-only update)
+    - [ ] Docs (`k/website`) update PR(s): TBD
+
+The scope is the server-side Pod printer and its tests. The API already separates `state.waiting` from `state.running`. A selected init waiting with `PodInitializing` displays `Init:N/M PodInitializing`; specific errors retain their current display. Kubelet status generation and Pod API fields remain unchanged. No feature gate is proposed. The display does not distinguish image pulling from container creation, and a count alone is not proof of running.
+
+[KEP-5334: Image Pull Progress](https://github.com/kubernetes/enhancements/issues/5334) addresses a related need through streaming progress APIs. This proposal is narrower and does not depend on those APIs. SIG CLI and SIG Node review of the printer scope is requested.
+
+/sig node
+/sig cli
+
+</summary><published>2026-10-13T11:55:50+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6456</id><title>Work API</title><updated>2026-10-08T06:06:47+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6456" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add a KEP for the Work API https://github.com/kubernetes-sigs/work-api under `keps/sig-multicluster`, bringing the 2021 design proposal up to date with the API as it exists today (including `AppliedWork`) so it is documented, tracked, and evolved through the same process as the other SIG-Multicluster APIs.
+- Kubernetes Enhancement Proposal: 
+- Discussion Link: https://github.com/kubernetes-sigs/work-api/blob/master/docs/proposals/20210219-work-api.md
+- PRs by stage and milestone:
+  - [x] Alpha - v1.xx
+    - [x] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6457
+    - [x] Code (`k/k`) update PR(s): https://github.com/kubernetes-sigs/work-api
+    - [x] Docs (`k/website`) update PR(s): https://multicluster.sigs.k8s.io/concepts/work-api/
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+The Work API was accepted by SIG-Multicluster in 2021 and is implemented in https://github.com/kubernetes-sigs/work-api, but the design has been updated. For example, the `AppliedWork` which has been discussed and agreed upon in the SIG-MC community https://github.com/kubernetes-sigs/work-api/pull/14/changes and https://github.com/kubernetes-sigs/work-api/pull/29 in 2023.
+
+Every other SIG-MC APIs has its KEP created and maintained. The Work API is the one exception, which means there is no path to link to and no normal place to land design updates. 
+
+This Work KEP would migrate the original proposal into the KEP template, reconcile it with the current API and implementation. **It is not proposing changes to the API itself.**
+
+/sig multicluster
+/kind kep
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._</summary><published>2026-10-03T17:48:32+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6449</id><title>`$HOME/.kube/config.d` support</title><updated>2026-10-08T06:14:31+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6449" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add `$HOME/.kube/config.d` support and automatic Kubeconfig Files Discovery
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt; #6450 
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; sig-cli meeting: [here, a rough POC and discussion](https://www.youtube.com/watch?v=Uz3Zg-h7mZQ&amp;list=PL69nYSiGNLP28HaTzSlFe6RJVxpFmbUvF&amp;t=1295s)
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-30T19:47:03+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6438</id><title>Resize Gates for In-Place Pod Resize</title><updated>2026-10-06T10:22:25+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6438" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add `pod.spec.resizeGates`, mirroring `schedulingGates`, so out-of-tree quota and capacity controllers can hold in-place resize growth until they admit it.
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6459
+- Discussion Link: https://github.com/kubernetes/kubernetes/issues/131835, [design doc](https://docs.google.com/document/d/1xlXgVAGK48HDillOHAdAtIiYLdfErZlJKWXyeM5QYFw/edit)
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6459
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-28T13:32:46+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6432</id><title>Configurable Container Level field for Pod Readiness</title><updated>2026-09-28T23:41:56+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6432" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Provides option of excluding container in pod readiness evaluation
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; https://github.com/kubernetes/kubernetes/issues/142145
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-09-25T14:44:52+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6430</id><title>SLM: Coordinate Node lifecycle condition writers</title><updated>2026-10-19T14:38:18+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6430" rel="alternate"/><summary>### Enhancement Description
+[Node lifecycle conditions](https://kubernetes.io/docs/reference/node/node-lifecycle-conditions/) provide a shared place to publish important lifecycle state, but the Condition API does not provide coordination semantics. Multiple actors, like admins running `kubectl drain`, remediation controllers, Node Problem Detector, infrastructure operators, ect., can all observe the same Node and independently decide to write lifecycle state invalidating each other.
+
+**Problem**
+Node Condition writers are unaware of one another, so they can overwrite another actor's lifecycle signal or trigger conflicting remediation. There isn't an available way to coordinate who set the condition, how long it will be set for, ect..
+
+**Goal**
+This KEP will define a coordination mechanism for Node lifecycle condition writers and a way to discover ownership. The mechanism should allow an actor to declare that it is managing a Node lifecycle operation, identify the scope of that ownership, and give other writers and readers enough structured context to avoid conflicting updates. It will also define how readers should interpret lifecycle state when an owner is present.
+
+- One-line enhancement description (can be used as a release note): Add coordination mechanism for actors writing Node lifecycle conditions.
+- Kubernetes Enhancement Proposal: TBD
+- Discussion Link:
+  - Use cases doc: [Node Lifecycle Coordination Using Conditions](https://docs.google.com/document/d/12nMG9Yyzd5D8iams5Oc4BEtfupe-li-Kxsxm_G7D_Ts/edit?usp=sharing)
+  - [KEP-5683: Node Lifecycle Conditions](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/5683-lifecycle-conditions)
+  - [Specialized Lifecycle Management](https://github.com/kubernetes/enhancements/issues/5683)
+  - [SLM: Publish kubectl drain state as Node conditions](https://github.com/kubernetes/enhancements/issues/6251)
+  - [kubernetes/node-problem-detector#1176](https://github.com/kubernetes/node-problem-detector/issues/1176)
+  - [kubernetes/node-problem-detector#457](https://github.com/kubernetes/node-problem-detector/issues/457)
+- PRs by stage and milestone:
+  - [ ] Alpha - TBD
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update PR(s):
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+
+/sig node
+/sig cli
+/wg node-lifecycle</summary><published>2026-09-24T16:18:40+00:00</published></entry></feed>
