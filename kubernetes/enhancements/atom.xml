@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><id>issue2atom_kubernetes/enhancements/issues</id><title>GitHub Issues kubernetes/enhancements</title><updated>2026-11-07T05:54:34.315126+00:00</updated><author><name>kubernetes</name></author><link href="https://github.com/kubernetes/enhancements/issues" rel="alternate"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><subtitle>GitHub Issues of kubernetes/enhancements</subtitle><entry><id>issue2atom_kubernetes/enhancements/issues/6497</id><title>DRA match all attributes</title><updated>2026-11-05T11:34:36+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6497" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note):  Extend DRA device attribute matching with `match: all`, allowing an attribute to match any concrete value in `matchAttribute` constraints.
+- Kubernetes Enhancement Proposal: https://github.com/kubernetes/enhancements/pull/6498
+- Discussion Link: https://kubernetes.slack.com/archives/C0409NGC1TK/p1791961229476259
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):https://github.com/kubernetes/enhancements/pull/6498
+    - [ ] Code (`k/k`) update PR(s):TBD
+    - [ ] Docs (`k/website`) update PR(s):TBD
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+</summary><published>2026-11-05T10:54:39+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6492</id><title>Dynamic Persistent &amp; CSI Volumes</title><updated>2026-11-03T15:57:22+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6492" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Support dynamically adding and removing persistent volumes and CSI volumes (building on top of https://github.com/kubernetes/enhancements/issues/6395)
+- Kubernetes Enhancement Proposal: Coming soon
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt;
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-11-03T15:36:04+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6488</id><title>EvictionRequest: Preemption Support</title><updated>2026-11-02T15:52:14+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6488" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Investigate if we can offer hints to the preemption API via responders to limit disruption to important workloads. Also investigate if preemption can support (or optionally support) EvictionRequest API and give higher guarantees to the disrupted workloads.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link:  https://github.com/kubernetes/enhancements/issues/4563 and https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#preemption-support
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.xx
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-11-02T15:51:09+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6487</id><title>EvictionRequest: Workload and PodGroup API support</title><updated>2026-11-02T15:51:32+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6487" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): PodGoup API specifies a disruptionMode that can prescribe a disruption of a gang of pods to be evicted at the same time. Support for pods referencing pod groups is missing in the EvictionRequest/Eviction API. This adds such support.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: https://github.com/kubernetes/enhancements/issues/4563 and https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#workload-api-support
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-11-02T15:46:49+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6486</id><title>EvictionRequest: ReplicaSet support</title><updated>2026-11-02T15:41:01+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6486" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): ReplicaSet controller should prefer deleting pods on scale down that are already being evicted/terminated via the EvictionRequest/Eviction API to in order to minimize the disruption to the underlying set of pods.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: https://github.com/kubernetes/enhancements/issues/4563 and https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#follow-up-design-details-for-kubernetes-workloads
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-11-02T15:40:39+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6485</id><title>EvictionRequest: Deployment support</title><updated>2026-11-02T15:42:29+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6485" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Deployment with a `.spec.strategy.rollingUpdate.maxSurge` could respond to EvictionRequests of its own pods and preemptively scale up the deployment before terminating the evicted pods.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: https://github.com/kubernetes/enhancements/issues/4563 and https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/4563-eviction-request-api/README.md#follow-up-design-details-for-kubernetes-workloads
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-11-02T15:30:53+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6480</id><title>CSI ControllerUnpublishVolume Reason</title><updated>2026-10-29T15:51:32+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6480" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): CSI drivers can now tell whether a volume is being detached after node cleanup succeeded, after Kubernetes stopped waiting for it, or because the node was taken out of service.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; https://github.com/container-storage-interface/spec/pull/613
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6481
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+</summary><published>2026-10-29T15:46:19+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6476</id><title>Per-Pod OOM Kill Scope</title><updated>2026-11-02T22:59:05+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6476" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Add a pod-level configuration for Process or Container level OOM Kills, to complement the node-level kubelet config `singleProcessOOMKill` setting.
+- Kubernetes Enhancement Proposal: &lt;!-- link to kubernetes/enhancements file; if none yet, link to PR --&gt;
+- Discussion Link: &lt;!-- link to SIG mailing list thread, meeting, or recording where the Enhancement was discussed before KEP creation --&gt; To be discussed, reserving an issue number now to file the draft PR.
+- PRs by stage and milestone:
+  - [ ] Alpha - v1.39
+    - [ ] KEP (`k/enhancements`) update PR(s):
+    - [ ] Code (`k/k`) update PR(s):
+    - [ ] Docs (`k/website`) update PR(s):
+
+&lt;!-- Uncomment these as you prepare the enhancement for the next stage
+- [ ] Beta - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+- [ ] Stable - v1.xx
+  - [ ] KEP (`k/enhancements`) update PR(s):
+  - [ ] Code (`k/k`) update PR(s):
+  - [ ] Docs (`k/website`) update(s):
+--&gt;
+
+_Please keep this description up to date. This will help the Enhancement Team to track the evolution of the enhancement efficiently._
+/sig node
+</summary><published>2026-10-25T16:34:43+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6472</id><title>Show Pod extended resource requests in kubectl describe node</title><updated>2026-10-21T05:26:37+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6472" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description (can be used as a release note): Show Pod extended resource requests and limits in a separate table in `kubectl describe node`.
+- Kubernetes Enhancement Proposal: [Draft KEP PR #6473](https://github.com/kubernetes/enhancements/pull/6473).
+- Discussion Link: SIG discussion has not taken place yet. Related prior work: [kubernetes/kubernetes#44271](https://github.com/kubernetes/kubernetes/issues/44271) and [kubernetes/kubernetes#46079](https://github.com/kubernetes/kubernetes/pull/46079).
+- PRs by stage and milestone:
+  - [ ] Provisional design; no release target
+    - [ ] KEP (`k/enhancements`) update PR: https://github.com/kubernetes/enhancements/pull/6473
+    - [ ] Code (`k/k`) update PR: not started
+    - [ ] Docs (`k/website`) update PR: not started
+
+The current node description shows extended resource totals but does not show which Pods requested them. This proposal adds one row per nonzero Pod/resource pair and reuses the existing Pod reads and resource calculations. Resource names come from Pod data; there is no vendor list.
+
+A Pod may request several resource types, for example GPU count, memory, cores, and network resources. The table grows in rows rather than columns and does not silently truncate matching requests.
+
+This differs from [KEP-5677](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/5677-dra-resource-availability-visibility), which adds an API and controller for DRA pool availability. This proposal shows scalar requests, including extended resource keys served by DRA, but does not expand explicit ResourceClaims. A note marks that limit when listed Pods reference Claims. It does not report device assignments or runtime use.
+
+Proposed ownership is SIG CLI, with SIG Node participation. SIG sponsorship, the output design, and the release plan are not agreed yet. No new API, API calls, permissions, feature gate, or command-line flag is proposed.
+
+/sig cli
+/sig node
+</summary><published>2026-10-21T05:23:54+00:00</published></entry><entry><id>issue2atom_kubernetes/enhancements/issues/6467</id><title>Show init container waiting reasons in Pod table output</title><updated>2026-10-21T10:20:23+00:00</updated><link href="https://github.com/kubernetes/enhancements/issues/6467" rel="alternate"/><summary>### Enhancement Description
+
+- One-line enhancement description: Show the existing `PodInitializing` waiting reason alongside the init count in the server-generated Pod Table used by `kubectl get pods`.
+- Kubernetes Enhancement Proposal: [KEP PR #6468](https://github.com/kubernetes/enhancements/pull/6468), status `provisional`; [proposed README](https://github.com/panpan0000/enhancements/blob/kep-6467-init-container-startup-status/keps/sig-node/6467-init-container-startup-status/README.md).
+- Discussion links: [original feature request](https://github.com/kubernetes/kubernetes/issues/141686), [implementation PR](https://github.com/kubernetes/kubernetes/pull/141693), and [KEP-first guidance](https://github.com/kubernetes/kubernetes/pull/141693#issuecomment-6126926630).
+- Primary contact: @panpan0000
+- Proposed owning SIG: SIG Node; participating SIG: SIG CLI. The printer-only scope requests SIG CLI review; ownership, sponsorship, and approvers remain to be confirmed.
+- PRs by stage and milestone:
+  - [ ] Alpha - candidate Kubernetes v1.39 release; release stages subject to SIG agreement
+    - [ ] KEP (`k/enhancements`) update PR(s): https://github.com/kubernetes/enhancements/pull/6468
+    - [ ] Code (`k/k`) update PR(s): https://github.com/kubernetes/kubernetes/pull/141693 (earlier kubelet proposal; needs a separate printer-only update)
+    - [ ] Docs (`k/website`) update PR(s): TBD
+
+The scope is the server-side Pod printer and its tests. The API already separates `state.waiting` from `state.running`. A selected init waiting with `PodInitializing` displays `Init:N/M PodInitializing`; specific errors retain their current display. Kubelet status generation and Pod API fields remain unchanged. No feature gate is proposed. The display does not distinguish image pulling from container creation, and a count alone is not proof of running.
+
+[KEP-5334: Image Pull Progress](https://github.com/kubernetes/enhancements/issues/5334) addresses a related need through streaming progress APIs. This proposal is narrower and does not depend on those APIs. SIG CLI and SIG Node review of the printer scope is requested.
+
+/sig node
+/sig cli
+
+</summary><published>2026-10-13T11:55:50+00:00</published></entry></feed>
